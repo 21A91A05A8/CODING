@@ -37,6 +37,9 @@ public:
 
 Minimum Number of Operations to Make Array XOR Equal to K
 -----------------------------------------------------------------
+
+APPROACH-1
+-------------
 class Solution {
 public:
     int minOperations(vector<int>& nums, int k) {
@@ -60,6 +63,16 @@ public:
     }
 };
 
+
+
+APPROACH--2
+-------------
+int s=0;
+        for(int i=0;i<nums.size();i++){
+            s^=nums[i];
+        }
+        s^=k;
+        return __builtin_popcount(s);
 
 
 Minimum Number of Operations to Make X and Y Equal
