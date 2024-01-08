@@ -109,3 +109,24 @@ public:
         return -1;
     }
 };
+
+
+
+
+Arithmetic Slices II - Subsequence
+----------------------------------------------------------------
+class Solution {
+public:
+    int numberOfArithmeticSlices(vector<int>& nums) {
+        vector<map<long ,long >>m(nums.size());
+        int c=0;
+        for(int i=0;i<nums.size();i++){
+            for(int j=0;j<i;j++){
+                long long d=1ll*nums[i]-1ll*nums[j];
+                m[i][d]+=m[j][d]+1;
+                c+=m[j][d];
+            }
+        }
+        return c;
+    }
+};
