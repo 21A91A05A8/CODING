@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int n,c=0;
+	cin>>n;
+	while(n){
+	    int p=n^1;
+	    if(p%2==0){
+	        c++;
+	    }
+	    n=n>>1;
+	}
+	cout<<c;
+}
