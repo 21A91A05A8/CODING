@@ -1,0 +1,11 @@
+long long maxSubarraySum(int arr[], int n) {
+    long long maxSum = arr[0]; // Initialize maxSum to the first element
+    long long currentSum = arr[0]; // Initialize currentSum to the first element
+
+    for (int i = 1; i < n; i++) {
+        currentSum = max((long long)arr[i], currentSum + arr[i]); // Update currentSum
+        maxSum = max(maxSum, currentSum); // Update maxSum
+    }
+
+    return maxSum;
+}
