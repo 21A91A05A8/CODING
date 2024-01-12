@@ -1,0 +1,29 @@
+class Solution {
+public:
+    int countvowels(int l,int n,string s){
+        int c=0;
+        for(int i=l;i<=n;i++){
+            if(s[i]=='a'||s[i]=='e'||s[i]=='i'||s[i]=='o'||s[i]=='u'){
+                c+=1;
+            }
+        }
+        return c;
+    }
+    bool halvesAreAlike(string s) {
+        transform(s.begin(), s.end(), s.begin(), ::tolower); 
+        if(s.size()%2!=0){
+            return false;
+        }
+        else
+        {
+            int mid=(s.size()/2);
+            if(countvowels(0,mid-1,s)==countvowels(mid,s.size(),s))
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+    }
+};
