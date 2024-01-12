@@ -8,7 +8,7 @@ public:
             return false;
         }
         return isBSTUtil(root->left, minValue, root->data - 1) &&
-               isBSTUtil(root->right, root-> + 1, maxValue);
+               isBSTUtil(root->right, root-> data+ 1, maxValue);
     }
 
     bool isBST(Node* root) {
