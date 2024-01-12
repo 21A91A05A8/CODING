@@ -1,0 +1,25 @@
+class Solution
+{
+    public:
+    
+    // Function to reverse first k elements of a queue.
+    queue<int> modifyQueue(queue<int> q, int k) {
+        vector<int>v;
+        int temp,i;
+        while (!q.empty()){
+            int r=q.front();
+            q.pop();
+            v.push_back(r);
+        }
+        int n=v.size();
+        for(i=0;i<k/2;i++){
+            temp=v[i];
+            v[i]=v[k-i-1];
+            v[k-i-1]=temp;
+        }
+        for(i=0;i<n;i++){
+            q.push(v[i]);
+        }
+        return q;
+    }
+};
