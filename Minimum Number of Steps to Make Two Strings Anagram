@@ -1,0 +1,23 @@
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        map<char, int> m;
+        map<char, int> m1;
+        for (char c : s) {
+            m[c]++;
+        }
+        for (char c : t) {
+            m1[c]++;
+        }
+        
+        int steps = 0;
+        for (const auto& p : m) {
+            char c = p.first;
+            int countS = p.second;
+            int countT = m1[c];
+            steps += max(0, countS - countT);
+        }
+        
+        return steps;
+    }
+};
