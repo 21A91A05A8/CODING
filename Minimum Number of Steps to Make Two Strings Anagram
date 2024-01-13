@@ -1,3 +1,5 @@
+METHOD-1
+------------------------
 class Solution {
 public:
     int minSteps(string s, string t) {
@@ -19,5 +21,33 @@ public:
         }
         
         return steps;
+    }
+};
+
+
+
+
+
+METHOD-2
+----------------------------
+class Solution {
+public:
+    int minSteps(string s, string t) {
+        vector<int> freq(26, 0); // Assuming only lowercase alphabets
+        
+        for (char c : s) {
+            freq[c - 'a']++; // Increment frequency of character c
+        }
+        
+        for (char c : t) {
+            freq[c - 'a']--; // Decrement frequency of character c
+        }
+        
+        int steps = 0;
+        for (int f : freq) {
+            steps += abs(f); // Add absolute difference in frequencies to steps
+        }
+        
+        return steps / 2; // Since each difference counts as 2 steps (one for removing from s and one for adding to t)
     }
 };
