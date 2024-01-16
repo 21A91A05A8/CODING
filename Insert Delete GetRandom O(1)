@@ -1,0 +1,33 @@
+class RandomizedSet {
+    set<int>a;
+public:
+    RandomizedSet() {
+        srand(time(NULL));
+    }
+    
+    bool insert(int val) {
+        if (a.find(val) != a.end()) {
+            return false;
+        }
+        a.insert(val);
+        return true;
+    }
+    
+    bool remove(int val) {
+         if (a.find(val) != a.end()) {
+            a.erase(val);
+            return true;
+        }
+        return false;
+    }
+    
+    int getRandom() {
+        if (a.empty()) {
+            return -1;
+        }
+        int randomIndex = rand() % a.size();
+        auto it = a.begin();
+        advance(it, randomIndex);
+        return *it;
+    }
+};
