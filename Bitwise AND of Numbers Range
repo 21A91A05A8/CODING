@@ -1,0 +1,24 @@
+class Solution {
+public:
+    int rangeBitwiseAnd(int left, int right) {
+        int a=0,b=0,c=0,d=0;
+        if(left==right) return left;
+        if(left>=1){ 
+            a=(int)log2(left);
+        }
+        if(right>=1){
+            b=1+((int)log2(right));
+        }
+        if(a+1==b){
+            int x=left;
+            for(int i=left+1;i<=right;i++){
+                if(i==2147483647)   break;
+                x&=i;
+            }
+            return x;
+        }
+        else{
+            return 0;
+        }
+    }
+};
